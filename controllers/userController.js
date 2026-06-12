@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const User = require('../models/userModel');
 
 exports.getUsers = async (req, res) => {
@@ -18,6 +19,33 @@ exports.getUserById = async (req, res) => {
 exports.createUser = async (req, res) => {
   const user = await User.create(req.body);
   res.status(201).json(user);
+};
+
+exports.loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
+
+  const user = await User.findOne({ email: email.toLowerCase() }).select('+password');
+
+  if (!user) {
+    return res.status(401).json({ message: 'Invalid email or password' });
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordValid) {
+    return res.status(401).json({ message: 'Invalid email or password' });
+  }
+
+  user.password = undefined;
+
+  return res.status(200).json({
+    message: 'Login successful',
+    user,
+  });
 };
 
 exports.updateUser = async (req, res) => {
