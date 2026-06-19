@@ -33,6 +33,15 @@ const userSchema = new mongoose.Schema(
       postalCode: { type: String, trim: true },
       country: { type: String, trim: true, default: 'India' },
     },
+
+    permissions: {
+      create: { type: Boolean, default: false },
+      read:   { type: Boolean, default: true },  // Everyone can read by default
+      update: { type: Boolean, default: false },
+      delete: { type: Boolean, default: false },
+      change: { type: Boolean, default: false }  // For admin/setting changes
+    },
+
     role: {
       type: String,
       enum: ['customer', 'admin'],
