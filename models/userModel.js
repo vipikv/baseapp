@@ -44,8 +44,8 @@ const userSchema = new mongoose.Schema(
 
     role: {
       type: String,
-      enum: ['customer', 'admin'],
-      default: 'customer',
+      enum: ['job_seeker','employer', 'admin'],
+      default: 'job_seeker',
     },
     passwordResetToken: {
       type: String,
