@@ -16,7 +16,7 @@ const {
   deleteEducation,
   addCertification,
   deleteProfile,
-} = require('../controllers/jobSeekerController');
+} = require('../controllers/jobseekerController');
 
 // ✅ public routes
 router.get('/:id', getJobSeekerById);   // GET /api/jobseekers/:id

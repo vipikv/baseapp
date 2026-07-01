@@ -1,5 +1,5 @@
 // controllers/jobSeekerController.js
-const JobSeeker = require('../models/JobSeeker');
+const JobSeeker = require('../models/jobseekerModel');
 
 // create profile
 exports.createProfile = async (req, res, next) => {

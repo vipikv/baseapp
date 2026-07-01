@@ -10,7 +10,7 @@ const {
   updateJobPost,
   deleteJobPost,
   getMyJobPosts,
-} = require('../controllers/jobPostController');
+} = require('../controllers/jobpostsController');
 
 // ✅ public routes
 router.route('/')

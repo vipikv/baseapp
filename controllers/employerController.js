@@ -1,5 +1,5 @@
 // controllers/employerController.js
-const Employer = require('../models/Employer');
+const Employer = require('../models/employerModel');
 
 // create employer profile
 exports.createEmployerProfile = async (req, res, next) => {

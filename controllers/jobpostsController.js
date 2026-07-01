@@ -1,5 +1,5 @@
-// controllers/jobPostController.js
-const JobPost = require('../models/JobPost');
+
+const JobPost = require('../models/jobpostsModel');
 
 // create job post — employer only!
 exports.createJobPost = async (req, res, next) => {

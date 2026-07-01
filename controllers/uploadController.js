@@ -1,7 +1,7 @@
 // controllers/uploadController.js
 const cloudinary = require('../config/cloudinary');
-const JobSeeker = require('../models/JobSeeker');
-const Employer = require('../models/Employer');
+const JobSeeker = require('../models/jobseekerModel');
+const Employer = require('../models/employerModel');
 
 // upload profile photo
 exports.uploadProfilePhoto = async (req, res, next) => {
